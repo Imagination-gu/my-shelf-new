@@ -1,0 +1,435 @@
+body { 
+    background: #2c1d16 url("https://www.transparenttextures.com/patterns/dark-wood.png"); 
+    background-size: cover; 
+    margin: 0; 
+    font-family: "Hiragino Kaku Gothic ProN", sans-serif; 
+} 
+h1 { 
+    text-align: center; 
+    padding: 20px; 
+    color: #f5f5f5; 
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6); 
+} 
+.shelf { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+    gap: 40px 20px; 
+    /* 段の高さと列の間隔 */ 
+    margin: 20px; 
+    position: relative; 
+} 
+/* 段ごとに棚板を引く */ 
+.shelf::before { 
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-image: repeating-linear-gradient( to bottom, transparent, transparent calc(100%/auto - 10px), /* 行の高さに応じて調整 */ #3e2723 calc(100%/auto - 10px), #3e2723 calc(100%/auto - 2px) ); 
+    background-size: 100% 200px; 
+    /* 棚板の間隔（200pxは調整可） */ 
+    z-index: 0; 
+} 
+.book { 
+    background: transparent; 
+    border-radius: 8px; 
+    padding: 10px; 
+    text-align: center; 
+    z-index: 1; 
+    position: relative; 
+} 
+.book img { 
+    width: 100%; 
+    height: auto; 
+    border-radius: 4px; 
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.5); 
+} 
+.book h2 { 
+    font-size: 14px; 
+    margin: 8px 0 4px; 
+    color: #fff; 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); 
+} 
+.book p { 
+    font-size: 12px; 
+    color: #ddd; 
+    margin: 0; 
+} 
+.book:hover { 
+    transform: scale(1.05); 
+    transition: 0.3s; 
+    z-index: 2; /* ホバー中は前面に */ 
+} 
+.book a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  
+  .book a:hover {
+    opacity: 0.9;
+  }
+  
+
+
+/* ヘッダーの部分 */ 
+header { 
+    background: linear-gradient(135deg, #3e2723, #1b1311); 
+    /* ダーク木目に合うグラデ背景 */ 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 40px; /* 左右を広めに */ 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    width: 100%; /* 横幅いっぱいに */ 
+    box-sizing: border-box; /* padding込みで100%幅 */ 
+} 
+
+header h1 { 
+    margin: 0; 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 36px; 
+    font-weight: 600; 
+    letter-spacing: 6px; 
+    color: #d4af37; /* ゴールドカラー */ 
+    text-transform: uppercase; 
+    text-align: center; 
+    position: relative; 
+} 
+
+/* 下にゴールドのラインを引く */ 
+header h1::after { 
+    content: ""; 
+    display: block; 
+    width: 80px; 
+    height: 3px; 
+    margin: 8px auto 0; 
+    background: linear-gradient(90deg, #b8860b, #ffd700, #b8860b); 
+    /* ゴールドグラデーション */ 
+    border-radius: 2px; 
+    opacity: 0.9; 
+} 
+
+header .explain {
+    color: #f5f5f5; 
+    text-decoration: none; 
+    font-size: 14px; 
+    padding: 8px 16px; 
+    border: 1px solid #f5f5f5; 
+    border-radius: 20px; 
+    transition: all 0.3s ease; 
+}
+
+header .explain:hover {
+    background: #f5f5f5; 
+    color: #3e2723;  
+    box-shadow: 0 0 10px rgba(255,255,255,0.7); 
+}
+
+header .about { 
+    color: #f5f5f5; 
+    text-decoration: none; 
+    font-size: 14px; 
+    padding: 8px 16px; 
+    border: 1px solid #f5f5f5; 
+    border-radius: 20px; 
+    transition: all 0.3s ease; 
+} 
+
+header .about:hover { 
+    background: #f5f5f5; 
+    color: #3e2723;  
+    box-shadow: 0 0 10px rgba(255,255,255,0.7); 
+} 
+
+header h1 a { 
+    text-decoration: none; 
+    color: #d4af37; /* ゴールド */ 
+    transition: opacity 0.3s; 
+}
+
+header h1 a:hover { 
+    opacity: 0.7; /* ホバー時に少し暗くして押せる感を出す */ 
+}
+
+/* ヘッダー右側リンクの配置 */
+.header-links {
+    margin-left: auto;  /* h1の右に押しやる */
+    display: flex;
+    gap: 10px;          /* ボタン同士の間隔 */
+}
+
+
+
+
+/* 管理者紹介ページ*/ 
+.about-admin { 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    padding: 40px 20px; 
+} 
+.profile-card { 
+    background: rgba(255,255,255,0.05); 
+    padding: 30px; 
+    border-radius: 12px; 
+    max-width: 400px; 
+    text-align: center; 
+    color: #f5f5f5; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5); 
+} 
+.profile-card img { 
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid #d4af37; /* ゴールドアクセント */ 
+} 
+.profile-card h2 { 
+    margin: 15px 0 5px; 
+    font-size: 24px; 
+    font-family: 'Montserrat', sans-serif; 
+} 
+.profile-card .role { 
+    font-size: 14px; 
+    color: #ddd; 
+    margin-bottom: 15px; 
+} 
+.profile-card .bio { 
+    font-size: 14px; 
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+} 
+.profile-card .links a { 
+    display: inline-block; 
+    margin: 0 10px; 
+    padding: 6px 12px; 
+    border: 1px solid #d4af37; 
+    border-radius: 20px; 
+    color: #d4af37; 
+    text-decoration: none; 
+    font-size: 13px; 
+    transition: 0.3s; 
+} 
+.profile-card .links a:hover { 
+    background: #d4af37; 
+    color: #3e2723; 
+}
+
+/*本の詳細ページ*/
+
+/* 詳細ページ用 */
+.book-detail {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+  }
+  
+  .book-detail-card {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    text-align: center;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+  
+  .book-detail-card img {
+    width: 220px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.6);
+  }
+  
+  .book-detail-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffd700; /* ゴールド強調 */
+  }
+
+  h3{
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffd700; /* ゴールド強調 */
+  }
+  
+  .book-detail-card .author {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .book-detail-card .description {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #f0f0f0;
+  }
+
+  .book-detail-card .description strong {
+  color: #ffd700;              /* タイトルと同じゴールド */
+  display: block;              /* 1行として独立させる */
+  font-size: 16px;             /* 本文より少し大きく */
+  margin-bottom: 10px;         /* 本文との間隔 */
+}
+
+
+/* 詳細ページ専用 本棚に戻るボタン */
+.back-button {
+    margin-top: 30px;
+    text-align: center; /* 中央寄せ */
+  }
+  
+  .back-button a {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 25px;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+  
+  .back-button a:hover {
+    background: #d4af37;
+    color: #3e2723;
+    box-shadow: 0 0 12px rgba(212,175,55,0.7);
+    transform: translateY(-2px);
+  }
+
+
+
+
+
+
+
+/* explain.html 専用スタイル */
+.explain-page {
+    background: rgba(255,255,255,0.05);
+    padding: 40px 30px;
+    max-width: 800px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    color: #f5f5f5;
+    line-height: 1.8;
+    font-size: 16px;
+    text-align: center;
+}
+
+.explain-page h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    color: #ffd700;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.explain-page p, .explain-page li {
+    margin-bottom: 15px;
+}
+
+.explain-page ul {
+    list-style: none;
+}
+
+.explain-page section {
+    margin-bottom: 30px; /* セクション間の余白統一 */
+}
+
+.explain-page .tips,
+.explain-page .video-prompt {
+    background: rgba(255,255,255,0.05);
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+    color: #f5f5f5;
+}
+
+.explain-page .tips {
+    font-style: italic;
+    background: rgba(212,175,55,0.1);
+}
+
+.explain-page .back-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.explain-page .back-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.explain-page .back-button a:hover {
+    background: #d4af37;
+    color: #3e2723;
+    box-shadow: 0 0 10px rgba(212,175,55,0.7);
+}
+
+
+
+/* ジャンルフィルターセクション */
+.filter {
+    max-width: 800px;
+    margin: 20px auto 40px auto;
+    text-align: center;
+    color: #f5f5f5;
+}
+
+.filter label {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.filter select {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid #d4af37;
+    background: rgba(255,255,255,0.05);
+    color: #f5f5f5;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter select:hover {
+    border-color: #ffd700;
+}
+
+/* .book のホバーは既存 CSS を使用済みなので追加は不要 */
+
+/* media queryでスマホ対応（必要に応じて調整） */
+@media screen and (max-width: 600px) {
+    .shelf {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 20px 15px;
+    }
+
+    .book img {
+        width: 100%;
+    }
+
+    .filter select {
+        width: 80%;
+    }
+}
