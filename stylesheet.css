@@ -40,15 +40,14 @@ h1 {
     position: relative; 
 } 
 .book img {
-    width: 100%;
-    max-width: 160px;   /* ← 1〜19 の見た目に近い幅 */
-    height: 240px;      /* ← 単行本比率（新書より縦長でない） */
-    object-fit: cover;  /* ← 新書だけ上下が切れる */
+    width: 162%;
+    max-width: 162px;   /* 単行本の横幅基準 */
+    height: 240px;      /* 単行本の縦幅基準（240 ÷ 162 ≒ 1.48） */
+    object-fit: cover;  /* 新書だけ上下が自然にトリミングされる */
     border-radius: 4px;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
-    margin: 0 auto;
-    display: block;
-}
+    margin: 0 auto;     /* 中央揃え */
+    disp
 
 
 
