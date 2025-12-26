@@ -39,18 +39,12 @@ h1 {
     z-index: 1; 
     position: relative; 
 } 
-.book img {
-    width: 162%;
-    max-width: 162px;   /* 単行本の横幅基準 */
-    height: 240px;      /* 単行本の縦幅基準（240 ÷ 162 ≒ 1.48） */
-    object-fit: cover;  /* 新書だけ上下が自然にトリミングされる */
-    border-radius: 4px;
-    box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
-    margin: 0 auto;     /* 中央揃え */
-    disp
-
-
-
+.book img { 
+    width: 100%; 
+    height: auto; 
+    border-radius: 4px; 
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.5); 
+}
 
 .book h2 { 
     font-size: 14px; 
