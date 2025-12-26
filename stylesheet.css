@@ -41,14 +41,15 @@ h1 {
 } 
 .book img {
     width: 100%;
-    max-width: 180px;          /* 既存の見た目に合わせる */
-    aspect-ratio: 180 / 260;   /* 本の縦横比を固定 */
-    object-fit: cover;         /* 表紙をきれいにトリミング */
+    max-width: 160px;   /* ← 1〜19 の見た目に近い幅 */
+    height: 240px;      /* ← 単行本比率（新書より縦長でない） */
+    object-fit: cover;  /* ← 新書だけ上下が切れる */
     border-radius: 4px;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
-    margin: 0 auto;            /* 中央揃え */
+    margin: 0 auto;
     display: block;
 }
+
 
 
 
